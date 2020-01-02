@@ -14,8 +14,9 @@ def div(event):
         num1 = float(entry1.get())
         num2 = float(entry2.get())
         lab['text'] = num1 / num2
-
-    except:
+    except ZeroDivisionError:
+        lab['text'] = 'Ошибка'
+    except ValueError:
         lab['text'] = 'Ошибка'
 
 
@@ -25,7 +26,7 @@ def mult(event):
         num2 = float(entry2.get())
         lab['text'] = num1 * num2
 
-    except:
+    except ValueError:
         lab['text'] = 'Ошибка'
 
 
@@ -35,7 +36,7 @@ def degree(event):
         num2 = float(entry2.get())
         lab['text'] = num1 ** num2
 
-    except:
+    except ValueError:
         lab['text'] = 'Ошибка'
 
 
@@ -45,7 +46,7 @@ def sum(event):
         num2 = float(entry2.get())
         lab['text'] = num1 + num2
 
-    except:
+    except ValueError:
         lab['text'] = 'Ошибка'
 
 
