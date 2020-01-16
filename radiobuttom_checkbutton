@@ -1,0 +1,40 @@
+from tkinter import *
+
+bio = {'Petya': 'tel.: +7 995 225 05 06',
+       'Vasya': 'tel.: +7 905 555 55 01',
+       'Misha': 'tel.: +7 956 333 222 33'
+       }
+
+
+def change_info():
+    """
+    Function changing the value of "my_LabLe" depending on the state of radiobutton.
+    :return: none
+    """
+    if r_var.get() == 0:
+        my_LabLe['text'] = bio['Petya']
+    elif r_var.get() == 1:
+        my_LabLe['text'] = bio['Vasya']
+    elif r_var.get() == 2:
+        my_LabLe['text'] = bio['Misha']
+
+
+root = Tk()
+
+f1 = Frame()
+f2 = Frame()
+r_var = IntVar()
+r_var.set(0)
+r_b_1 = Radiobutton(f1, text='Петя', width=7, height=2, variable=r_var, value=0, indicatoron=0, command=change_info)
+r_b_2 = Radiobutton(f1, text='Вася', width=7, height=2, variable=r_var, value=1, indicatoron=0, command=change_info)
+r_b_3 = Radiobutton(f1, text='Миша', width=7, height=2, variable=r_var, value=2, indicatoron=0, command=change_info)
+my_LabLe = Label(f2, width=40, height=5)
+my_LabLe['bg'] = 'light blue'
+f1.pack(side=LEFT)
+r_b_1.pack(anchor=W)
+r_b_2.pack(anchor=W)
+r_b_3.pack(anchor=W)
+f2.pack(side=LEFT, fill=BOTH)
+my_LabLe.pack(expand=1, fill=BOTH)
+
+root.mainloop()
